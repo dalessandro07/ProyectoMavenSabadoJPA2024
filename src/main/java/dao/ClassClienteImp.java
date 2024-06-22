@@ -3,6 +3,7 @@
  */
 package dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import interfaces.ICliente;
@@ -20,13 +21,13 @@ public class ClassClienteImp implements ICliente {
 
   @Override
   public void RegistrarCliente(TblCliente cliente) {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
     try {
-      // Establecer la conexión con la unidad de persistencia
-      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
-
-      // Gestionar las entidades
-      EntityManager em = fabr.createEntityManager();
-
       // Iniciamos la transacción
       em.getTransaction().begin();
 
@@ -38,23 +39,23 @@ public class ClassClienteImp implements ICliente {
 
       // Confirmamos
       em.getTransaction().commit();
-
-      // Cerramos
-      em.close();
     } catch (Exception e) {
       System.out.println(e.getMessage());
+    } finally {
+      // Cerramos
+      em.close();
     }
   }
 
   @Override
   public void ActualizarCliente(TblCliente cliente) {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
     try {
-      // Establecer la conexión con la unidad de persistencia
-      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
-
-      // Gestionar las entidades
-      EntityManager em = fabr.createEntityManager();
-
       // Iniciamos la transacción
       em.getTransaction().begin();
 
@@ -66,24 +67,24 @@ public class ClassClienteImp implements ICliente {
 
       // Confirmamos
       em.getTransaction().commit();
-
-      // Cerramos
-      em.close();
     } catch (Exception e) {
       System.out.println(e.getMessage());
+    } finally {
+      // Cerramos
+      em.close();
     }
 
   }
 
   @Override
   public void EliminarCliente(TblCliente cliente) {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
     try {
-      // Establecer la conexión con la unidad de persistencia
-      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
-
-      // Gestionar las entidades
-      EntityManager em = fabr.createEntityManager();
-
       // Iniciamos la transacción
       em.getTransaction().begin();
 
@@ -98,24 +99,24 @@ public class ClassClienteImp implements ICliente {
 
       // Confirmamos
       em.getTransaction().commit();
-
-      // Cerramos
-      em.close();
     } catch (Exception e) {
       System.out.println(e.getMessage());
+    } finally {
+      // Cerramos
+      em.close();
     }
 
   }
 
   @Override
   public TblCliente BuscarCliente(TblCliente cliente) {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
     try {
-      // Establecer la conexión con la unidad de persistencia
-      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
-
-      // Gestionar las entidades
-      EntityManager em = fabr.createEntityManager();
-
       // Iniciamos la transacción
       em.getTransaction().begin();
 
@@ -125,26 +126,26 @@ public class ClassClienteImp implements ICliente {
       // Confirmamos
       em.getTransaction().commit();
 
-      // Cerramos
-      em.close();
-
       // Retornamos el cliente buscado de la BD
       return buscarCliente;
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return null;
+    } finally {
+      // Cerramos
+      em.close();
     }
   }
 
   @Override
   public List<TblCliente> ListadoCliente() {
+    // Establecer la conexión con la unidad de persistencia
+    EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
+
+    // Gestionar las entidades
+    EntityManager em = fabr.createEntityManager();
+
     try {
-      // Establecer la conexión con la unidad de persistencia
-      EntityManagerFactory fabr = Persistence.createEntityManagerFactory(persistenceUnitName);
-
-      // Gestionar las entidades
-      EntityManager em = fabr.createEntityManager();
-
       // Iniciamos la transacción
       em.getTransaction().begin();
 
@@ -157,14 +158,14 @@ public class ClassClienteImp implements ICliente {
       // Confirmamos
       em.getTransaction().commit();
 
-      // Cerramos
-      em.close();
-
       // Retornamos el listado de clientes de la BD
       return listado;
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      return null;
+      return Collections.emptyList();
+    } finally {
+      // Cerramos
+      em.close();
     }
   }
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html> 
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
@@ -40,7 +41,7 @@
         <label class="flex flex-col gap-2" for="sexo">
           <span>Sexo:</span>
           <select required class="border border-black p-2 rounded" name="sexo">
-            <option disabled selected>Selecciona el sexo</option>
+            <option disabled>Selecciona el sexo</option>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
           </select>
@@ -54,7 +55,7 @@
       </div>
       
       <div class="flex gap-10 items-center">
-        <button class="bg-blue-600 text-white w-max px-6 hover:bg-blue-800 transition-all duration-300 py-3 rounded" type="submit">Registrar</button>
+        <button name="action" value="new" class="bg-blue-600 text-white w-max px-6 hover:bg-blue-800 transition-all duration-300 py-3 rounded" type="submit">Registrar</button>
       
         <a href="listadoClientes.jsp" class="text-blue-600 underline">Listado</a>
       </div>
